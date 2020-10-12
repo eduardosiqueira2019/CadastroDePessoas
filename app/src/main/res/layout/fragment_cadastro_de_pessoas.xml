@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <TextView
+        android:id="@+id/textVNomePessoa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="136dp"
+        android:text="@string/nome"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="@+id/editTextNomePessoa"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <requestFocus />
+
+    <EditText
+        android:id="@+id/editTextNomePessoa"
+        android:layout_width="379dp"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:backgroundTint="#050505"
+        android:ems="10"
+        android:inputType="text"
+        android:maxLines="1"
+        android:textColor="#050505"
+        app:layout_constraintStart_toStartOf="@+id/textViewIdadePessoa"
+        app:layout_constraintTop_toBottomOf="@+id/textVNomePessoa"
+        tools:ignore="LabelFor" />
+
+    <TextView
+        android:id="@+id/textViewBairro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:text="@string/bairro"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="@+id/editTextBairro"
+        app:layout_constraintTop_toBottomOf="@+id/editTextComplemento" />
+
+    <EditText
+        android:id="@+id/editTextIdadePessoa"
+        android:layout_width="49dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="1dp"
+        android:backgroundTint="#000000"
+        android:digits="1234567890"
+        android:ems="10"
+        android:hint="@string/sua_idade"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        android:maxLength="3"
+        android:maxLines="1"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="@+id/textViewEndereco"
+        app:layout_constraintTop_toBottomOf="@+id/textViewIdadePessoa" />
+
+    <EditText
+        android:id="@+id/editTextTelefone"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:backgroundTint="#000000"
+        android:ems="10"
+        android:hint="@string/seu_telefone"
+        android:importantForAutofill="no"
+        android:inputType="phone"
+        android:maxLength="15"
+        android:maxLines="1"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.279"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textVTelefone" />
+
+    <TextView
+        android:id="@+id/textVTelefone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/telefone"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="@+id/editTextTelefone"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNomePessoa" />
+
+    <br.com.cadastrodepessoas.util.EditTextCep
+        android:id="@+id/editTextCEP"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="#000000"
+        android:ems="10"
+        android:maxLines="1"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCEP" />
+
+    <TextView
+        android:id="@+id/textViewComplemento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:text="@string/complemento"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="@+id/editTextComplemento"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEndereco" />
+
+    <TextView
+        android:id="@+id/textViewCidade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        android:text="@string/cidade"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="@+id/editTextCidade"
+        app:layout_constraintTop_toBottomOf="@+id/editTextBairro" />
+
+    <TextView
+        android:id="@+id/textViewIdadePessoa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/idade"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="@+id/editTextIdadePessoa"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNomePessoa" />
+
+    <EditText
+        android:id="@+id/editTextComplemento"
+        android:layout_width="383dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#000000"
+        android:ems="10"
+        android:hint="@string/dadoscomplementares"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:maxLines="1"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="@+id/textViewBairro"
+        app:layout_constraintTop_toBottomOf="@+id/textViewComplemento" />
+
+    <TextView
+        android:id="@+id/textViewCEP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="91dp"
+        android:text="@string/cep"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toStartOf="@+id/imgButtonBuscaCep"
+        app:layout_constraintHorizontal_bias="0.257"
+        app:layout_constraintStart_toEndOf="@+id/textVTelefone"
+        app:layout_constraintStart_toStartOf="@+id/editTextCEP"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNomePessoa" />
+
+    <EditText
+        android:id="@+id/editTextCidade"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="13dp"
+        android:backgroundTint="#000000"
+        android:digits=" ~abcdefghijklmnopqrstuvxwyzABCDEFGHIJKLMNOPQRSTUVXZ"
+        android:ems="10"
+        android:hint="@string/localidade"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:maxLines="1"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toStartOf="@+id/editTextUF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCidade" />
+
+    <EditText
+        android:id="@+id/editTextUF"
+        android:layout_width="65dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="14dp"
+        android:backgroundTint="#000000"
+        android:digits="ABCDEFGHIJKLMNOPQRSTUVXZ"
+        android:ems="10"
+        android:hint="@string/sigla_do_estado"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:maxLength="2"
+        android:maxLines="1"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/editTextCidade" />
+
+    <TextView
+        android:id="@+id/textViewUF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="1dp"
+        android:backgroundTint="#000000"
+        android:maxLength="2"
+        android:text="@string/uf"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/editTextUF"
+        app:layout_constraintStart_toStartOf="@+id/editTextUF" />
+
+    <EditText
+        android:id="@+id/editTextEndereco"
+        android:layout_width="379dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#000000"
+        android:ems="10"
+        android:focusable="true"
+        android:hint="@string/logradouro"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:maxLines="1"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="@+id/textViewComplemento"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEndereco" />
+
+    <TextView
+        android:id="@+id/textViewEndereco"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/endereco"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="@+id/editTextEndereco"
+        app:layout_constraintTop_toBottomOf="@+id/editTextIdadePessoa" />
+
+    <EditText
+        android:id="@+id/editTextBairro"
+        android:layout_width="383dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:backgroundTint="#000000"
+        android:ems="10"
+        android:hint="@string/seu_bairro"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:maxLines="1"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="@+id/textViewCidade"
+        app:layout_constraintTop_toBottomOf="@+id/textViewBairro" />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabGrava"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="62dp"
+        android:layout_marginEnd="59dp"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/fabExclui"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCidade"
+        app:srcCompat="@drawable/ic_save_pessoa" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabNovo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="59dp"
+        android:layout_marginEnd="63dp"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/fabExclui"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCidade"
+        app:srcCompat="@drawable/ic_nova_pessoa" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabExclui"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="@+id/fabGrava"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/fabGrava"
+        app:srcCompat="@drawable/ic_delete_pessoa" />
+
+    <ImageButton
+        android:id="@+id/imgButtonBuscaCep"
+        android:layout_width="55dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="36dp"
+        android:backgroundTint="#FFF5A1"
+        app:layout_constraintBottom_toTopOf="@+id/editTextEndereco"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.961"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNomePessoa"
+        app:srcCompat="@android:drawable/ic_search_category_default" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

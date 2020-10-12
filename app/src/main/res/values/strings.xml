@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Cadastro de Pessoas</string>
+    <string name="nome">Nome</string>
+    <string name="bairro">Bairro</string>
+    <string name="cep">CEP</string>
+    <string name="idade">Idade</string>
+    <string name="cidade">Cidade</string>
+    <string name="complemento">Complemento</string>
+    <string name="telefone">Telefone</string>
+    <string name="uf">UF</string>
+    <string name="endereco">Endereço</string>
+    <string name="sua_idade">Sua idade</string>
+    <string name="seu_telefone">Seu telefone</string>
+    <string name="dadoscomplementares">Número da casa, apto etc.</string>
+    <string name="localidade">localidade</string>
+    <string name="sigla_do_estado">Sigla do estado</string>
+    <string name="logradouro">Logradouro</string>
+    <string name="seu_bairro">Seu bairro</string>
+</resources>
