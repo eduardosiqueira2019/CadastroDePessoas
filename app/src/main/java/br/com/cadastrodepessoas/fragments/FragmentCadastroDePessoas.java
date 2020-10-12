@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -43,6 +42,7 @@ public class FragmentCadastroDePessoas extends Fragment {
     EditText editTextUF;
     String nome = "", telefone = "", cep = "", endereco = "", complemento = "", bairro = "", cidade = "", uf = "";
     int idade = 0;
+    long novoid = 0;
     PessoaDAO pessoaDAO;
 
     public FragmentCadastroDePessoas() {
@@ -75,6 +75,8 @@ public class FragmentCadastroDePessoas extends Fragment {
 
                 ObterValoresDosCamposDaActivity();
 
+                if (!ValidarCamposParaGravacao()) return;
+
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
@@ -106,6 +108,47 @@ public class FragmentCadastroDePessoas extends Fragment {
                 }).start();
 
                 PrepararUmNovoRegistro();
+            }
+
+            private boolean ValidarCamposParaGravacao() {
+                String msgAlertaCampo = "";
+                Boolean campoOk = true;
+
+                if (nome.trim().length() == 0) {
+                    msgAlertaCampo = "Nome deve ser preenchido.";
+                }
+                if (idade == 0 && msgAlertaCampo.equals("")) {
+                    msgAlertaCampo = "Idade inválida.";
+                }
+                if (telefone.trim().length() == 0 && msgAlertaCampo.equals("")) {
+                    msgAlertaCampo = "Telefone deve ser preenchido.";
+                }
+                if (cep.trim().length() != 9 && msgAlertaCampo.equals("")) {
+                    msgAlertaCampo = "CEP inválido.";
+                }
+                if (endereco.trim().length() == 0 && msgAlertaCampo.equals("")) {
+                    msgAlertaCampo = "Endereço deve ser preenchido.";
+                }
+                if (complemento.trim().length() == 0 && msgAlertaCampo.equals("")) {
+                    msgAlertaCampo = "Complemento deve ser preenchido.";
+                }
+                if (bairro.trim().length() == 0 && msgAlertaCampo.equals("")) {
+                    msgAlertaCampo = "Bairro deve ser preenchido.";
+                }
+                if (cidade.trim().length() == 0 && msgAlertaCampo.equals("")) {
+                    msgAlertaCampo = "Cidade deve ser preenchida.";
+                }
+                if (uf.trim().length() == 0 && msgAlertaCampo.equals("")) {
+                    msgAlertaCampo = "UF deve ser preenchida.";
+                }
+
+                campoOk = msgAlertaCampo.equals("");
+
+                if (!campoOk)
+                    Snackbar.make(Objects.requireNonNull(getView()), msgAlertaCampo, Snackbar.LENGTH_LONG).show();
+
+                return campoOk;
+
             }
 
         });
@@ -145,22 +188,34 @@ public class FragmentCadastroDePessoas extends Fragment {
         btBuscaCep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                cep = Objects.requireNonNull(editTextCEP.getText()).toString().trim();
+                if (cep.length() != 9) {
+                    Snackbar.make(Objects.requireNonNull(getView()), "Cep inválido.", Snackbar.LENGTH_LONG).show();
+                    return;
+                }
                 try {
-                    CEP cepRetornado = null;
+                    CEP dadosRetornados = null;
                     try {
-                        ObterValoresDosCamposDaActivity();
-                        cepRetornado = new RequisicaoHTTP(cep.replace("-","")).execute().get();
-                        Toast.makeText(getContext(), cepRetornado.toString(), Toast.LENGTH_SHORT).show();
+
+                        dadosRetornados = new RequisicaoHTTP(cep.replace("-", "")).execute().get();
                     } catch (ExecutionException e) {
                         e.printStackTrace();
                     }
-                    //editTextEndereco.setText(cepRetornado.getLogradouro());
-                    if (cepRetornado != null) {
-                        Toast.makeText(getContext(), cepRetornado.getLogradouro(), Toast.LENGTH_LONG).show();
+
+                    if (dadosRetornados != null) {
+                        PreencherCamposComDadosDaAPI(dadosRetornados);
                     }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+            }
+
+            private void PreencherCamposComDadosDaAPI(CEP cepRetornado) {
+                editTextEndereco.setText(cepRetornado.getLogradouro());
+                editTextCompl.setText(cepRetornado.getComplemento());
+                editTextBairro.setText(cepRetornado.getBairro());
+                editTextCidade.setText(cepRetornado.getLocalidade());
+                editTextUF.setText(cepRetornado.getUf());
             }
         });
 
@@ -204,7 +259,7 @@ public class FragmentCadastroDePessoas extends Fragment {
 
     private void ObterValoresDosCamposDaActivity() {
         nome = editTextNome.getText().toString();
-        idade = Integer.parseInt(editTextIdade.getText().toString());
+        idade = editTextIdade.getText().toString().trim().equals("") ? 0 : Integer.parseInt(editTextIdade.getText().toString());
         telefone = editTextTelefone.getText().toString();
         cep = Objects.requireNonNull(editTextCEP.getText()).toString();
         endereco = editTextEndereco.getText().toString();

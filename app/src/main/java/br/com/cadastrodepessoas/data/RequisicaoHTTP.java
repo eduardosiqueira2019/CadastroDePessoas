@@ -33,7 +33,7 @@ public class RequisicaoHTTP extends AsyncTask<Void,Void, CEP> {
             urlAcessada = "viacep.com.br/ws/" + this.cep + "/json/";
             URL url = null;
             URI uri = null;
-            String uriString = urlAcessada;
+            String uriString = "https://" + urlAcessada;
 
             try {
                 uri = new URI(uriString);

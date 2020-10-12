@@ -2,14 +2,14 @@ package br.com.cadastrodepessoas.model;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
-import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "pessoa")
 public class Pessoa {
 
-    @PrimaryKey(autoGenerate =true)
+
     @ColumnInfo(name = "id")
+    @PrimaryKey(autoGenerate = true)
     private long id;
 
     @ColumnInfo(name = "nome")
@@ -40,19 +40,31 @@ public class Pessoa {
     private String uf;
 
 
-
     public Pessoa(String nome, String telefone) {
         this.nome = nome;
         this.telefone = telefone;
     }
 
-    public Pessoa(long id, String nome, int idade, String telefone) {
-        this.nome = nome;
-        this.telefone = telefone;
-    }
+//    public Pessoa(long id, String nome, int idade, String telefone) {
+//        this.nome = nome;
+//        this.telefone = telefone;
+//    }
+//
+//    public Pessoa(long id, String nome, int idade, String telefone, String cep, String endereco, String complemento, String bairro, String cidade, String uf) {
+//        this.id = id;
+//        this.nome = nome;
+//        this.idade = idade;
+//        this.telefone = telefone;
+//        this.cep = cep;
+//        this.endereco = endereco;
+//        this.complemento = complemento;
+//        this.bairro = bairro;
+//        this.cidade = cidade;
+//        this.uf = uf;
+//    }
 
-    public Pessoa(long id, String nome, int idade, String telefone, String cep, String endereco, String complemento, String bairro, String cidade, String uf) {
-        this.id = id;
+
+    public Pessoa(String nome, int idade, String telefone, String cep, String endereco, String complemento, String bairro, String cidade, String uf) {
         this.nome = nome;
         this.idade = idade;
         this.telefone = telefone;
